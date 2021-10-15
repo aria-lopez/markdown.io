@@ -1,4 +1,10 @@
 body, html {
     padding: 0;
     margin: 0;
+    background-color: #202124;
+    color: #E8EAED;
+}
+
+* {
+    font-family: 'Source Sans Pro', sans-serif;
 }
