@@ -7,6 +7,7 @@ const NavContainer = styled.div`
     justify-content: left;
     border-bottom: 1px solid #9AA0A6;
     width: 100%;
+    margin-bottom: 10px;
 `;
 
 const NavSpacer = styled.div`
@@ -22,14 +23,32 @@ const NavButton = styled.button`
     cursor: pointer;
     background-color: transparent;
     font-weight: 500;
-    font-size: 17px;
+    font-size: 18px;
     border: 1px solid whitesmoke;
     border-radius: 7px;
     color: inherit;
     padding: 8px;
     transition-duration: 0.2s;
     &:hover {
-        background-color: #163ef2;
+        background-color: #f5a142;
+        box-shadow: 0px 0px 25px #f5a142;
+    }
+`;
+
+const MainButton = styled.button`
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 18px;
+    border: 1px solid whitesmoke;
+    border-radius: 7px;
+    color: inherit;
+    padding: 8px;
+    transition-duration: 0.2s;
+    background-color: #7916f2;
+    box-shadow: 0px 0px 25px #7916f2;
+    &:hover {
+        background-color: #f5a142;
+        box-shadow: 0px 0px 25px #f5a142;
     }
 `;
 
@@ -39,9 +58,9 @@ export default function NavBar() {
             <NavSpacer width={'50px'}/>
             <Logo>Markdown.io</Logo>
             <NavSpacer width={'50px'}/>
-            <NavButton>
-               + New Document
-            </NavButton>
+            <MainButton>
+               New Document
+            </MainButton>
             <NavSpacer width={'20px'}/>
             <NavButton>
                 Import Document
