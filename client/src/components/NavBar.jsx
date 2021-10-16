@@ -7,7 +7,6 @@ const NavContainer = styled.div`
     justify-content: left;
     border-bottom: 1px solid #9AA0A6;
     width: 100%;
-    margin-bottom: 10px;
 `;
 
 const NavSpacer = styled.div`

@@ -8,22 +8,23 @@ const Container = styled.div`
     justify-content: center;
     transition: opacity 1s;
     flex-direction: column;
+    border-bottom: 1px solid #9AA0A6;
+    width: 100%;
+    background-color: #35165c;
 `;
 
 const Title = styled.h1`
 `;
 
-const Or = styled.h1`
-    opacity: ${props => props.opacity ? '1' : '0'};
-    transition: opacity 1s;
-`;
 
 const ButtonContainer = styled.div`
     display: flex;
-    align-items: center;
+    align-items: left;
     justify-content: space-evenly;
     flex-direction: column;
     min-height: 400px;
+    min-width: 400px;
+    text-align: left;
 `;
 
 const IntroButton = styled.button`
@@ -31,38 +32,36 @@ const IntroButton = styled.button`
     transition: opacity 1s;
     pointer-events: ${props => props.opacity ? 'auto' : 'none' };
     font-size: 30px;
+    padding-left: 15px;
     background-color: transparent;
     border-top: transparent;
     border-right: transparent;
-    border-left: transparent;
-    border-bottom: 2px solid whitesmoke; 
+    border-left: 2px solid #whitesmoke;
+    border-bottom: transparent;
+    text-align: left;
     color: inherit;
     cursor: pointer;
     &:hover {
         color: #f5a142; 
-        border-bottom: 2px solid #f5a142; 
+        border-left: 4px solid #f5a142; 
+        background-color: #454545;
     }
 `;
 
-const LoginButton = styled.button`
-    opacity: ${props => props.opacity ? '1' : '0'};
-    margin-top: 5px;
-    transition: opacity 1s;
-    pointer-events: ${props => props.opacity ? 'auto' : 'none' };
-    font-size: 15px;
-    background-color: transparent;
-    border: transparent;
-    color: inherit;
-    cursor: pointer;
-    &:hover {
-        color: #f5a142; 
-    }
-`;
-
-const Column = styled.div`
+const Row = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: left;
+    justify-content: left;
+    text-align: left;
+    margin: 20px 0px 20px 0px;
 `;
+
+const Spacer = styled.div`
+    min-height: ${props => props.height || '0' }px;
+    min-width: 1px;
+`;
+
 
 export default function Intro() {
     const [title, setTitle] = useState('');
@@ -81,20 +80,26 @@ export default function Intro() {
 
     return (
         <Container>
-            <Title>{title}</Title>
             <ButtonContainer>
-                <Column>
-                    <IntroButton opacity={displayButtons}>1. Create an account</IntroButton>
-                    <LoginButton opacity={displayButtons}>Already have an account?</LoginButton>
-                </Column>
+                <Spacer height={'25'}/>
+            <Title>{title}</Title>
+                <Row>
+                    <IntroButton opacity={displayButtons}> Create an account</IntroButton>
+                </Row>
+   
+                <Row>
+                    <IntroButton opacity={displayButtons}> Feature guide</IntroButton>
+                </Row>
 
-                <IntroButton opacity={displayButtons}>2. Check out our feature guide!</IntroButton>
-                <IntroButton opacity={displayButtons}>3. Create your first doc!</IntroButton>
+                <Row>
+                    <IntroButton opacity={displayButtons}> Create your first doc</IntroButton>
+                </Row>
 
             
-                <Or opacity={displayButtons}> OR </Or>
-
-                <IntroButton opacity={displayButtons}>Check out an example document</IntroButton>
+                <Row>
+                    <IntroButton opacity={displayButtons}> Check out an example doc</IntroButton>
+                </Row>
+                <Spacer height={'50'}/>
             </ButtonContainer>
         </Container>
     );
